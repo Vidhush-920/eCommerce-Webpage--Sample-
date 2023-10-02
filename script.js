@@ -11,7 +11,7 @@ window.onscroll = () =>{
     menu.classList.remove('fa-times');
     navbar.classList.remove('active');
 
-    if(window.scrollY > 150){
+    if(window.scrollY >= 106){
         header.classList.add('active');
     }else{
         header.classList.remove('active');
@@ -23,12 +23,14 @@ function show_alert(name){
     alert(name);
 }
 
-let countDate = new Date('december 31, 2021 23:59:59').getTime();
+let countDate = new Date('december 31, 2023 23:59:59').getTime();
 
 function CountDown(){
 
     let now = new Date().getTime();
     gap = countDate - now;
+
+    if(countDate <= now) { gap = 0;}
 
     let second = 1000;
     let minute = second * 60;
